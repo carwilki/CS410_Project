@@ -1,0 +1,68 @@
+# Single config for the CFPB HyDE project. Sources for each value: docs/DECISIONS.md
+# Model provider: any OpenAI-compatible server (/models, /chat/completions, /embeddings).
+# To switch (e.g. llama.cpp server, Ollama, vLLM): change base_url, the model ids under `models:`, and
+# chat_extra. `name: lmstudio` enables LM Studio extras (bootstrap loads extra embedder instances via `lms`).
+# The Faiss index is tied to the embedder that built it: changing the embedding model/server means
+# re-running `main.py bootstrap` (the TUI and bootstrap warn on a mismatch).
+provider:
+  name: lmstudio
+  base_url: http://localhost:1234/v1
+  api_key_env: null                      # env var holding a bearer token, if the server requires one
+  timeout_s: 600
+  chat_extra:                            # extra fields sent on every chat request (provider-specific)
+    reasoning_effort: "none"             # LM Studio: turns off Gemma thinking (R5). Remove if a server rejects it.
+
+models:                                  # ids as the provider lists them at GET /models
+  generator: google/gemma-4-e4b          # M1
+  embedder: text-embedding-nomic-embed-text-v1.5  # M3
+  judge: google/gemma-4-26b-a4b          # M2
+
+embedding:
+  dim: 768                               # N1, N4 (user: keep 768)
+  query_prefix: "search_query: "         # N3
+  document_prefix: "search_document: "   # N3
+  context_tokens: 2048                   # M3: LM Studio loaded context
+  # identical extra instances used round-robin for indexing throughput. LM Studio: bootstrap loads them
+  # (lms load --identifier nomic-N -c 2048). Other providers: ids not listed at /models are skipped.
+  index_instances: [text-embedding-nomic-embed-text-v1.5, nomic-2, nomic-3, nomic-4]
+  batch_size: 64                         # p4_embed throughput: 32-128 equal
+  tokenizer_repo: nomic-ai/nomic-embed-text-v1.5
+
+hyde:
+  n_docs: 5                              # spec; repo default is 8 (H2, H5)
+  temperature: 0.7                       # H2
+  top_p: 1.0                             # H2
+  max_tokens: 512                        # H2
+  stop: ["\n\n\n"]                       # H2  (reasoning off: provider.chat_extra, R5)
+
+retrieval:
+  default_mode: hybrid
+  top_n: 10
+  bm25_k1: 0.9                           # pyserini set_bm25 default (lucene/_searcher.py:583)
+  bm25_b: 0.4
+  hybrid_k0: 1000                        # candidates per list before fusion
+  fusion_alpha: 0.1                      # P5 pyserini default
+  fusion_normalization: true             # user 2026-11-15: HyDE score must carry weight (P5: pyserini default is false)
+  fusion_weight_on_dense: false          # P5 pyserini default
+
+admin:
+  judge_workers: 4                       # concurrent judge requests (LM Studio parallel slots for the judge)
+
+eval:
+  pool_depth: 20
+  relevance_threshold: 2                 # binary metrics: grade >= threshold
+  human_sample_size: 50
+  seed: 410
+  # UMBRELA default is 100 (gpt_judge.py:331). Observed 2026-11-15: gemma-4-26b-a4b ignores "without providing any
+  # reasoning", writes ~300 tokens of steps, and at 100 is cut off -> parser picks a stray digit (docs/probe_out/p5_judge_smoke.json).
+  judge_max_tokens: 512                  # deviation from UMBRELA 100 (DECISIONS V3, user 2026-11-15)
+
+paths:
+  data_dir: data
+  corpus_parquet: artifacts/corpus.parquet
+  json_collection: artifacts/json_collection
+  bm25_index: indexes/bm25
+  faiss_index: indexes/faiss_nomic768
+  embed_work: artifacts/embed_work
+  hyde_logs: hyde_logs
+  admin_db: admin/relevance.sqlite      # TUI search log + human/LLM relevance ratings

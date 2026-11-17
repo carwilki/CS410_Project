@@ -1,0 +1,60 @@
+{
+ "query": "debt collector keeps calling about a debt I already paid",
+ "passage": "I paid off my medical bill in full in March and have the receipt. Since then a collection agency has called me several times a week saying I still owe the balance. I sent them proof of payment but they continue to call my work number.",
+ "response": {
+  "model": "google/gemma-4-26b-a4b",
+  "params": {
+   "model": "google/gemma-4-26b-a4b",
+   "temperature": 0.0,
+   "top_p": 1,
+   "frequency_penalty": 0.5,
+   "presence_penalty": 0,
+   "max_tokens": 100,
+   "reasoning_effort": "none"
+  },
+  "raw_content": "Step 1: Consider the underlying intent of the search.\nThe user is looking for advice, legal rights, or steps to take when a debt collector continues to contact them regarding a debt that has already been settled.\n\nStep 2: Measure how well the content matches a likely intent of the query (M).\nThe passage describes a specific scenario that perfectly mirrors the query (a person being harassed by collectors for a paid debt). However, it is an anecdotal description of a problem rather than",
+  "reasoning_content": "",
+  "stripped_reasoning": "",
+  "finish_reason": "length",
+  "usage": {
+   "prompt_tokens": 367,
+   "completion_tokens": 100,
+   "total_tokens": 467,
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   }
+  },
+  "error": null,
+  "output": "step 1: consider the underlying intent of the search.\nthe user is looking for advice, legal rights, or steps to take when a debt collector continues to contact them regarding a debt that has already been settled.\n\nstep 2: measure how well the content matches a likely intent of the query (m).\nthe passage describes a specific scenario that perfectly mirrors the query (a person being harassed by collectors for a paid debt). however, it is an anecdotal description of a problem rather than",
+  "grade": 2,
+  "result_status": 1
+ },
+ "response_max_tokens_1024": {
+  "model": "google/gemma-4-26b-a4b",
+  "params": {
+   "model": "google/gemma-4-26b-a4b",
+   "temperature": 0.0,
+   "top_p": 1,
+   "frequency_penalty": 0.5,
+   "presence_penalty": 0,
+   "max_tokens": 1024,
+   "reasoning_effort": "none"
+  },
+  "raw_content": "Step 1: Consider the underlying intent of the search.\nThe user is looking for advice, legal rights, or steps to take when a debt collector continues to contact them regarding a debt that has already been settled.\n\nStep 2: Measure how well the content matches a likely intent of the query (M).\nThe passage describes a specific scenario that perfectly mirrors the query (a person being harassed by collectors for a paid debt). However, it is an anecdotal description of a problem rather than providing an answer or solution to the user's implied question.\n\nStep 3: Measure how trustworthy the passage is (T).\nThe passage is a first-person account/statement of a situation. While it serves as a relevant example, it does not provide authoritative guidance.\n\nStep 4: Consider the aspects above and the relative importance of each, and decide on a final score (O).\nThe passage is highly related to the topic (it describes the exact situation mentioned in the query), but it does not answer \"what to do\" or provide any resolution. According to the specific instructions provided: category 1 is for when the passage is somewhat related but does not answer, and category 2 is if it presents something very important related to the entire topic but has extra information. Since this passage describes the problem itself without offering a solution or advice, it fits the description of being related but not answering.\n\n##final score: 1",
+  "reasoning_content": "",
+  "stripped_reasoning": "",
+  "finish_reason": "stop",
+  "usage": {
+   "prompt_tokens": 367,
+   "completion_tokens": 294,
+   "total_tokens": 661,
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   }
+  },
+  "error": null,
+  "output": "step 1: consider the underlying intent of the search.\nthe user is looking for advice, legal rights, or steps to take when a debt collector continues to contact them regarding a debt that has already been settled.\n\nstep 2: measure how well the content matches a likely intent of the query (m).\nthe passage describes a specific scenario that perfectly mirrors the query (a person being harassed by collectors for a paid debt). however, it is an anecdotal description of a problem rather than providing an answer or solution to the user's implied question.\n\nstep 3: measure how trustworthy the passage is (t).\nthe passage is a first-person account/statement of a situation. while it serves as a relevant example, it does not provide authoritative guidance.\n\nstep 4: consider the aspects above and the relative importance of each, and decide on a final score (o).\nthe passage is highly related to the topic (it describes the exact situation mentioned in the query), but it does not answer \"what to do\" or provide any resolution. according to the specific instructions provided: category 1 is for when the passage is somewhat related but does not answer, and category 2 is if it presents something very important related to the entire topic but has extra information. since this passage describes the problem itself without offering a solution or advice, it fits the description of being related but not answering.\n\n##final score: 1",
+  "grade": 1,
+  "result_status": 1
+ }
+}

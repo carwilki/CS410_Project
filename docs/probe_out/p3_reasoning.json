@@ -1,0 +1,70 @@
+{
+ "all_clean": false,
+ "results": [
+  {
+   "query": "a debt collector keeps calling me about a debt I already paid",
+   "message_keys": [
+    "content",
+    "reasoning_content",
+    "role",
+    "tool_calls"
+   ],
+   "finish_reason": "length",
+   "reasoning_field_len": 868,
+   "marker_hits": [],
+   "content_head": "**Subject:** Harassment/Misrepresentation by Debt Collector Regarding Paid Account \u2013 [Insert Creditor Name or Collection Agency Name Here]\n\n**Narrative:**\n\nI am filing this complaint regarding persistent and unwarranted contact from a debt collection agency, [Insert Name of Collection Agency], conce"
+  },
+  {
+   "query": "my credit report shows an account that isn't mine",
+   "message_keys": [
+    "content",
+    "reasoning_content",
+    "role",
+    "tool_calls"
+   ],
+   "finish_reason": "length",
+   "reasoning_field_len": 1034,
+   "marker_hits": [],
+   "content_head": "**Subject: Dispute Regarding Inaccurate Account Information on Credit Report - Unauthorized Account Reporting**\n\nI am submitting this complaint to formally dispute and request an immediate investigation into a significant discrepancy found within my consumer credit report. The reporting includes inf"
+  },
+  {
+   "query": "the bank charged me overdraft fees after reordering my transactions",
+   "message_keys": [
+    "content",
+    "reasoning_content",
+    "role",
+    "tool_calls"
+   ],
+   "finish_reason": "length",
+   "reasoning_field_len": 1341,
+   "marker_hits": [],
+   "content_head": "**[NOTE TO SUBMITTER: This narrative is written as if you are filing it directly with the CFPB. Please replace bracketed information [ ] with your personal details.]**\n\n***\n\n### **Consumer Complaint Narrative**\n\n**Product/Service:** Checking Account Services\n**Financial Institution:** [Name of Bank]"
+  },
+  {
+   "query": "my mortgage servicer lost my loan modification paperwork",
+   "message_keys": [
+    "content",
+    "reasoning_content",
+    "role",
+    "tool_calls"
+   ],
+   "finish_reason": "length",
+   "reasoning_field_len": 1075,
+   "marker_hits": [],
+   "content_head": "**Complaint Narrative:**\n\nI am submitting this complaint regarding significant administrative negligence and failure on the part of [Mortgage Servicer Name] concerning my ongoing loan modification process for the property located at [Property Address].\n\nOn or about [Date], I initiated the formal app"
+  },
+  {
+   "query": "someone used my identity to open a credit card",
+   "message_keys": [
+    "content",
+    "reasoning_content",
+    "role",
+    "tool_calls"
+   ],
+   "finish_reason": "length",
+   "reasoning_field_len": 1413,
+   "marker_hits": [],
+   "content_head": "**[Begin CFPB Submission Narrative]**\n\n**Nature of Complaint:** Identity Theft / Fraudulent Account Opening\n**Product Involved:** Credit Card Services\n**Institution/Company Name:** [Insert Bank Name Here]\n\n***\n\n**Narrative Summary:**\n\nI am submitting this complaint regarding unauthorized and fraudul"
+  }
+ ]
+}

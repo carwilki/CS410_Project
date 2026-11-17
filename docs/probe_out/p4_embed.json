@@ -1,0 +1,51 @@
+{
+ "token_lengths": {
+  "50": 154,
+  "95": 686,
+  "99": 1277,
+  "max": 6497,
+  "mean": 234.7435,
+  "share_over_loaded_ctx": 0.0028,
+  "loaded_ctx": 2048,
+  "share_over_8192": 0.0
+ },
+ "embed_probe": {
+  "dim": 768,
+  "l2_norm": 1.0000000178932282,
+  "model_field": "text-embedding-nomic-embed-text-v1.5",
+  "overlength_status": 200,
+  "overlength_body_head": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"embedding\",\n      \"embedding\": [\n        0.0725095197558403,\n        0.04816160723567009,\n        -0.14728470146656036,\n        0.0009714081534184515,\n        0.031224172562360764,\n        -0.02428610995411873,\n        0.057534359395504,\n     "
+ },
+ "throughput": {
+  "16": {
+   "sec": 7.05,
+   "docs_per_sec": 141.8,
+   "projected_hours_full": 7.54,
+   "failed_batches": 0
+  },
+  "32": {
+   "sec": 6.55,
+   "docs_per_sec": 152.7,
+   "projected_hours_full": 7.01,
+   "failed_batches": 0
+  },
+  "64": {
+   "sec": 6.59,
+   "docs_per_sec": 151.7,
+   "projected_hours_full": 7.05,
+   "failed_batches": 0
+  },
+  "128": {
+   "sec": 6.61,
+   "docs_per_sec": 151.2,
+   "projected_hours_full": 7.07,
+   "failed_batches": 0
+  }
+ },
+ "memory": {
+  "N": 3851415,
+  "flat_index_bytes": 11831546880,
+  "flat_index_GiB": 11.02,
+  "ram_GiB": 64
+ }
+}

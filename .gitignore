@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Project artifacts (large)
+data/
+artifacts/
+indexes/
+hyde_logs/
+admin/
+
+# Local runtime state
+logs/
+.query_history
+.DS_Store
